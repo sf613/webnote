@@ -11,21 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818113427) do
+ActiveRecord::Schema.define(version: 20140820074230) do
+
+  create_table "edits", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "groups", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "identifier"
   end
 
   create_table "posts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "content"
   end
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.integer  "upvoted"
+    t.integer  "downvoted"
+    t.string   "password_hash"
+    t.string   "password_salt"
   end
 
 end
